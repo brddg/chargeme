@@ -2,6 +2,8 @@ import React from "react";
 
 import Data from "./data";
 import Input from "./input";
+import Charge from "./charge";
+import Results from "./results";
 
 export default class App extends React.Component {
   render() {
@@ -11,6 +13,10 @@ export default class App extends React.Component {
         <Data {...this.props} />
         <hr />
         <Input {...this.props} />
+        <hr />
+        <Charge {...this.props} />
+        <hr />
+        <Results {...this.props} />
       </div>
     );
   }
@@ -19,4 +25,7 @@ export default class App extends React.Component {
 App.propTypes = {
   count: React.PropTypes.number,
   people: React.PropTypes.array,
+  peopleToCharge: React.PropTypes.array,
+  charged: React.PropTypes.array,
+  errors: React.PropTypes.array,
 };

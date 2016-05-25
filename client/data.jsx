@@ -5,8 +5,8 @@ export default class Data extends React.Component {
     return (
       <p>
         <span className="label label-primary">{this.props.people.length}</span> imported &nbsp;
-        <span className="label label-success">xxx</span> charged &nbsp;
-        <span className="label label-danger">xxx</span> errors &nbsp;
+        <span className="label label-success">{this.props.charged.length}</span> charged &nbsp;
+        <span className="label label-danger">{this.props.errors.length}</span> errors &nbsp;
       </p>
     );
   }
