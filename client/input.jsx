@@ -14,7 +14,13 @@ export default class Input extends React.Component {
       <div>
         <form onSubmit={this.submitted}>
           <div className="form-group">
-            <p>This is a line delineated input that accepts emails</p>
+            <p>This is a comma-separated input that accepts people in this fashion:</p>
+            <code>
+              email,cardnumber,month,year,cvc,zip
+              email,cardnumber,month,year,cvc,zip
+              email,cardnumber,month,year,cvc,zip
+            </code>
+            <p></p>
             <textarea id="people" className="form-control" rows="10" placeholder="Import people..."></textarea>
           </div>
           <button type="submit" className="btn btn-default">Submit</button>

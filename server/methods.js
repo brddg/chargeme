@@ -14,9 +14,16 @@ Meteor.methods({
     Stripe.charges.create({
       amount: 1000,
       currency: "usd",
-      source: Meteor.settings.stripe.card,
+      source: {
+        number: person.card,
+        exp_month: person.month,
+        exp_year: person.year,
+        object: "card",
+        cvc: person.cvc,
+      },
       metadata: {
         email: person.email,
+        zip: person.zip,
       },
     }, Meteor.bindEnvironment(function(err, charge) {
       if (err) {
@@ -34,10 +41,16 @@ Meteor.methods({
   importPeople: (csv) => {
     const people = csv.split("\n");
     people.map((person) => {
+      const parts = person.split(",");
       People.insert({
-        email: person,
+        email: parts[0],
         charged: false,
         error: false,
+        card: parts[1],
+        month: parts[2],
+        year: parts[3],
+        cvc: parts[4],
+        zip: parts[5],
       });
     });
   },
