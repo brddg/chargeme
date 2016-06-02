@@ -12,7 +12,7 @@ Meteor.methods({
     const Stripe = StripeAPI(Meteor.settings.stripe.secret);
 
     Stripe.charges.create({
-      amount: 1000,
+      amount: 350,
       currency: "usd",
       source: {
         number: person.card,
