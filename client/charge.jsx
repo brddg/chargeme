@@ -9,7 +9,8 @@ export default class Charge extends React.Component {
     this.props.peopleToCharge.map((person) => {
       Meteor.call("runCharge", person._id, (err, result) => {
         if (err) {
-          alert(err);
+          alert(`Error: Could not process transaction for ${person.email}`);
+          return;
         } else {
           console.log(result);
         }
